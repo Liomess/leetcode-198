@@ -1,0 +1,23 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        def f(self,i,nums,n,dp):
+            if i==n-1:
+                dp[i]=nums[i]
+                return dp[i]
+            if i>=n:
+                dp[i]=0
+                return dp[i]
+            if dp[i]!=-1:
+                return dp[i]
+            yes,no=0,0
+            yes=nums[i]+f(self,i+2,nums,n,dp)
+            no=f(self,i+1,nums,n,dp)
+            dp[i]=max(yes,no)
+            return dp[i]
+            
+
+        n=len(nums)
+        dp=[-1 for i in range(n+1)]
+        return f(self,0,nums,n,dp)
+        
+        
