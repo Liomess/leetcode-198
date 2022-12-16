@@ -1,0 +1,17 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        def f(self,i,nums,n):
+            if i==n-1:
+                return nums[i]
+            if i>=n:
+                return 0
+            yes,no=0,0
+            yes=nums[i]+f(self,i+2,nums,n)
+            no=f(self,i+1,nums,n)
+            return max(yes,no)
+            
+
+        n=len(nums)
+        return f(self,0,nums,n)
+        
+        
